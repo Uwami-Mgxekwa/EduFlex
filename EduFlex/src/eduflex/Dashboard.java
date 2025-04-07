@@ -1,9 +1,12 @@
 
 package eduflex;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import javax.swing.Timer;
 import java.util.Random; 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Dashboard extends javax.swing.JFrame {
@@ -569,10 +572,15 @@ public void updateLabelsWithTimer() {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("EduFlex");
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("LOGOUT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -617,6 +625,16 @@ public void updateLabelsWithTimer() {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            new Login().setVisible(true);
+            dispose();
+        }
+        catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
